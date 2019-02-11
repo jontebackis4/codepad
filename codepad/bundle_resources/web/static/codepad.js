@@ -226,10 +226,33 @@ function codepad_change_file() {
 }
 
 function codepad_update_console(text) {
+    // Original content of function:
+    
+    // var console_elem = document.getElementById("console");
+    // if (console_elem) {
+    //     console_elem.innerHTML = html;
+    //     console_elem.scrollTop = console_elem.scrollHeight;
+    // }
+
     var console_elem = document.getElementById("console");
-    if (console_elem) {
-        console_elem.innerHTML = text;
-        console_elem.scrollTop = console_elem.scrollHeight;
+    if (console_elem) 
+    {
+        var scene_id = codepad_get_scene().substring(1);
+        var file = '/html5/static/' + scene_id + '.md';
+
+        fetch(file)
+            .then(function(response) 
+            {
+                return response.text().then(function (text)
+                {
+                    var converter = new showdown.Converter(),
+                        text      = text,
+                        html      = converter.makeHtml(text);
+
+                    console_elem.innerHTML = html;
+                    //console_elem.scrollTop = console_elem.scrollHeight;
+                });
+            });
     }
 }
 
