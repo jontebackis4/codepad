@@ -37,28 +37,28 @@
     </div>
 
     <div id="layout">
-
-
-        <div id="pane-editors" class="split split-vertical">
-            <div id="pane-console" class="split split-horizontal">
+        <div id="pane-information" class="split split-horizontal">
+            <div id="pane-console">
                 <div class="tabs-wrap"><input type="radio" id="console_tab" name="console_tab" value="console_tab" checked ><label for="console_tab">Console</label></div>
                 <div id="console-wrap" class="pane-content"><div id="console"></div></div>
             </div>
-            <div id="pane-editor" class="split split-horizontal">
+        </div>
+
+        <div id="pane-game" class="split split-horizontal">
+            <div id="pane-editor" class="split split-vertical">
                 <div id="files" class="tabs-wrap"></div>
                 <div id="editor-wrap">
                     <div id="editor"></div>
                     <button onclick="codepad_reload()"><img src="static/icon-reload.svg" class="svg-image">Reload</button>
                 </div>
             </div>
-        </div>
-
-        <div id="pane-canvas" class="split split-vertical pane-content">
-            <div id="app-container" class="canvas-app-container">
-                <canvas id="canvas" class="canvas-app-canvas" tabindex="1" width="{{DEFOLD_DISPLAY_WIDTH}}" height="{{DEFOLD_DISPLAY_HEIGHT}}"></canvas>
+            <div id="pane-canvas" class="split split-vertical pane-content">
+                <div id="app-container" class="canvas-app-container">
+                    <canvas id="canvas" class="canvas-app-canvas" tabindex="1" width="{{DEFOLD_DISPLAY_WIDTH}}" height="{{DEFOLD_DISPLAY_HEIGHT}}"></canvas>
+                </div>
+                <button id="reload_page" onclick="reload_page()">Close</button>
+                <button id="view_source" onclick="view_source()">View Source</button>
             </div>
-            <button id="reload_page" onclick="reload_page()">Close</button>
-            <button id="view_source" onclick="view_source()">View Source</button>
         </div>
     </div>
 </div>
