@@ -50,13 +50,13 @@ function codepad_load_editor(callback) {
         //editor.session.setMode("ace/mode/lua");
 
         // Setup panel splitters
-        Split(['#pane-editors', '#pane-canvas'], {
-            direction: 'vertical',
-            onDrag: function() { fix_canvas_size(); }
+        Split(['#pane-information', '#pane-game'], {
+            sizes: [30, 70]
         });
 
-        Split(['#pane-console', '#pane-editor'], {
-            sizes: [30, 70]
+        Split(['#pane-editor', '#pane-canvas'], {
+            direction: 'vertical',
+            onDrag: function() { fix_canvas_size(); }
         });
 
         if (callback) {
