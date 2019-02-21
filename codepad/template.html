@@ -8,6 +8,8 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="static/codepad.css">
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.0/showdown.min.js"></script>
+
     <title>{{DEFOLD_APP_TITLE}}</title>
 
     {{{DEFOLD_DEV_HEAD}}}
@@ -35,28 +37,36 @@
     </div>
 
     <div id="layout">
-
-
-        <div id="pane-editors" class="split split-vertical">
-            <div id="pane-console" class="split split-horizontal">
-                <div class="tabs-wrap"><input type="radio" id="console_tab" name="console_tab" value="console_tab" checked ><label for="console_tab">Console</label></div>
-                <div id="console-wrap" class="pane-content"><div id="console"></div></div>
+        <div id="pane-information" class="split split-horizontal">
+            <div id="pane-info">
+                <div class="tabs-wrap">
+                    <input type="radio" onchange="codepad_change_info_tab()" id="instruction_tab" name="information_tab" value="instruction_tab" checked>
+                    <label for="instruction_tab">Instructions</label>
+                    <input type="radio" onchange="codepad_change_info_tab()" id="console_tab" name="information_tab" value="console_tab">
+                    <label for="console_tab">Console</label>
+                </div>
+                <div id="info-wrap" class="pane-content">
+                    <div id="instructions"></div>
+                    <div id="console"></div>
+                </div>
             </div>
-            <div id="pane-editor" class="split split-horizontal">
+        </div>
+
+        <div id="pane-game" class="split split-horizontal">
+            <div id="pane-editor" class="split split-vertical">
                 <div id="files" class="tabs-wrap"></div>
                 <div id="editor-wrap">
                     <div id="editor"></div>
                     <button onclick="codepad_reload()"><img src="static/icon-reload.svg" class="svg-image">Reload</button>
                 </div>
             </div>
-        </div>
-
-        <div id="pane-canvas" class="split split-vertical pane-content">
-            <div id="app-container" class="canvas-app-container">
-                <canvas id="canvas" class="canvas-app-canvas" tabindex="1" width="{{DEFOLD_DISPLAY_WIDTH}}" height="{{DEFOLD_DISPLAY_HEIGHT}}"></canvas>
+            <div id="pane-canvas" class="split split-vertical pane-content">
+                <div id="app-container" class="canvas-app-container">
+                    <canvas id="canvas" class="canvas-app-canvas" tabindex="1" width="{{DEFOLD_DISPLAY_WIDTH}}" height="{{DEFOLD_DISPLAY_HEIGHT}}"></canvas>
+                </div>
+                <button id="reload_page" onclick="reload_page()">Close</button>
+                <button id="view_source" onclick="view_source()">View Source</button>
             </div>
-            <button id="reload_page" onclick="reload_page()">Close</button>
-            <button id="view_source" onclick="view_source()">View Source</button>
         </div>
     </div>
 </div>

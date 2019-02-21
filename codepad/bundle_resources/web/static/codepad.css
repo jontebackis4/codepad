@@ -114,7 +114,7 @@ body.embedded .pane-content {
 }
 
 .tabs-wrap {
-    position: absolute;
+    /* position: absolute; */
     top: 0px;
     height: 38px;
     width: 100%;
@@ -157,8 +157,9 @@ svg, .svg-image {
     margin-right: 6px;
 }
 
-#pane-editor, #pane-console {
+#pane-editor, #pane-info {
     position: relative;
+    height: 100%;
 }
 
 #editor-wrap {
@@ -190,8 +191,10 @@ svg, .svg-image {
     max-height: 100%;
 }
 
-#console-wrap {
-    position: absolute;
+#info-wrap {
+    /* position: absolute; */
+    overflow: auto;
+    height: 100%;
     top: 40px;
     bottom: 0px;
     left: 0px;
@@ -199,13 +202,13 @@ svg, .svg-image {
 }
 
 #console {
-    position: absolute;
+    /* position: absolute;
     top: 8px;
     bottom: 8px;
     left: 8px;
-    right: 8px;
+    right: 8px; */
     padding: 0px;
-    margin: 0px;
+    margin: 8px;
     border: 0px;
     overflow: auto;
     font-size: 12px;
