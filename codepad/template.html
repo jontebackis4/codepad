@@ -39,8 +39,13 @@
     <div id="layout">
         <div id="pane-information" class="split split-horizontal">
             <div id="pane-console">
-                <div class="tabs-wrap"><input type="radio" id="console_tab" name="console_tab" value="console_tab" checked ><label for="console_tab">Console</label></div>
-                <div id="console-wrap" class="pane-content"><div id="console"></div></div>
+                <div class="tabs-wrap">
+                    <input type="radio" onchange="codepad_change_info_tab()" id="instruction_tab" name="information_tab" value="instruction_tab" checked>
+                    <label for="instruction_tab">Instructions</label>
+                    <input type="radio" onchange="codepad_change_info_tab()" id="console_tab" name="information_tab" value="console_tab">
+                    <label for="console_tab">Console</label>
+                </div>
+                <div id="console-wrap" class="pane-content"><div id="console"></div><div id="instructions"></div></div>
             </div>
         </div>
 

@@ -195,6 +195,7 @@ function codepad_change_scene() {
             break;
         }
     }
+    codepad_change_info_tab();
 }
 
 function codepad_ready(scenes_json) {
@@ -225,34 +226,60 @@ function codepad_change_file() {
     }
 }
 
+var console_text = "";
+
 function codepad_update_console(text) {
-    // Original content of function:
-    
-    // var console_elem = document.getElementById("console");
-    // if (console_elem) {
-    //     console_elem.innerHTML = html;
-    //     console_elem.scrollTop = console_elem.scrollHeight;
-    // }
+    console_text = text;
+    codepad_change_info_tab();
+}
 
-    var console_elem = document.getElementById("console");
-    if (console_elem) 
-    {
-        var scene_id = codepad_get_scene().substring(1);
-        var file = '/html5/static/' + scene_id + '.md';
+function codepad_fetch_instructions(instructions_elem) {
+    var scene_id = codepad_get_scene().substring(1);
+    var file = '/html5/static/' + scene_id + '_instructions.md'; // update this before build
 
-        fetch(file)
-            .then(function(response) 
+    fetch(file)
+        .then(function(response) 
+        {
+            return response.text().then(function (text)
             {
-                return response.text().then(function (text)
-                {
-                    var converter = new showdown.Converter(),
-                        text      = text,
-                        html      = converter.makeHtml(text);
+                var converter = new showdown.Converter(),
+                    text      = text,
+                    html      = converter.makeHtml(text);
 
-                    console_elem.innerHTML = html;
-                    //console_elem.scrollTop = console_elem.scrollHeight;
-                });
+                    instructions_elem.innerHTML = html;
             });
+        });
+}
+
+function codepad_change_info_tab() {
+    var info_tabs = document.getElementsByName('information_tab');
+
+    for (var i = 0, length = info_tabs.length; i < length; i++)
+    {
+        if (info_tabs[i].checked)
+        {
+            var instructions_elem = document.getElementById('instructions');
+            var console_elem = document.getElementById('console');
+
+            if (info_tabs[i].id == "instruction_tab")
+            {
+                if (instructions_elem)
+                {
+                    codepad_fetch_instructions(instructions_elem);
+                }
+                instructions_elem.hidden = false;
+                console_elem.hidden = true;
+            }
+            else if (info_tabs[i].id == "console_tab")
+            {
+                if (console_elem) {
+                    console_elem.innerHTML = console_text;
+                    console_elem.scrollTop = console_elem.scrollHeight;
+                }
+                instructions_elem.hidden = true;
+                console_elem.hidden = false;
+            }
+        }
     }
 }
 
