@@ -235,7 +235,12 @@ function codepad_update_console(text) {
 
 function codepad_fetch_instructions(instructions_elem) {
     var scene_id = codepad_get_scene().substring(1);
-    var file = '/html5/static/' + scene_id + '_instructions.md'; // update this before build
+
+    if (location.hostname == "localhost") {
+        var file = '/html5/static/' + scene_id + '_instructions.md';
+    } else {
+        var file = window.location.href + '/static/' + scene_id + '_instructions.md';
+    }
 
     fetch(file)
         .then(function(response) 
