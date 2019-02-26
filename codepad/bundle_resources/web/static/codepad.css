@@ -307,16 +307,16 @@ body.embedded #reload_page {
 
 
 #instructions h1 {
- color: #d65d0e   
+ color: #cc241d   
 }
 
 #instructions h2 {
-    color: #fe8019
+    color: #fb4939
 }
 
 #instructions code {
   background-color: #282828;
-  color: #fb4939;
+  color: #fe8019;
   display: inline-block;
   padding: 2px;
 }
