@@ -137,6 +137,11 @@ Så på rad 5 i `points.gui_script` uppdateras hur många poäng du har. På rad
 
 **Uppgift 8:**
 
-* Ändra så att slumpen bestämmer hur många poäng du får. Använd `math.random()` som när vi placerade godisarna.
+* Ändra så att slumpen bestämmer hur många poäng du får. Använd `math.random()` som när vi placerade godisarna.  
+  
+    
+      
+        
+        
 
-------------------------------------------------------------
+------------------------------------------------------------  
