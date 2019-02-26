@@ -299,3 +299,8 @@ body.embedded #reload_page {
     right: 20px;
     top: 20px;
 }
+
+
+#instructions summary {
+    color: #b8bb26
+}
