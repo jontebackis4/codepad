@@ -304,3 +304,19 @@ body.embedded #reload_page {
 #instructions summary {
     color: #b8bb26
 }
+
+
+#instructions h1 {
+ color: #d65d0e   
+}
+
+#instructions h2 {
+    color: #fe8019
+}
+
+#instructions code {
+  background-color: #eee;
+  border: 1px solid #999;
+  display: block;
+  padding: 20px;
+}
