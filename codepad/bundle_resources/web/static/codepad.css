@@ -301,37 +301,38 @@ body.embedded #reload_page {
 }
 
 
-#instructions summary {
-    color: #b8bb26
-}
-
-
 #instructions h1  {
- color: #8ec07c  
+ color: #8ec07c                 /* Aqua grön */
 }
 
 #instructions h2 {
-    color: #fb4934
+    color: #fb4934              /* Röd */
 }
 
 #instructions h3 {
-    color: #fabd2f
+    color: #fabd2f              /* Gul */
+}
+
+#instructions summary {
+    color: #b8bb26              /*(Gömda flikar) grön */
 }
 
 #instructions code {
-  background-color: #282828;
+  background-color: #282828;    /* Mörkare bakgrund, orange text*/
   color: #fe8019;
   display: inline-block;
   padding: 2px;
 }
 
 #instructions strong {
-    color: #d3869b
+    color: #d3869b              /*(Fetstil) lila*/
 }
 
 #instructions img {
-  display: block;
+  display: block;               /*Centrerade bilder*/
   margin-left: auto;
   margin-right: auto;
   width: 50%;
 }
+
+
