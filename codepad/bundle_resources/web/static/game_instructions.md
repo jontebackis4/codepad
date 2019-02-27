@@ -6,7 +6,7 @@
 
 Om vi vill att datorn ska hoppa över en kod-rad kan vi göra om den till en kommentar. Det gör vi genom att skriva två bindestreck (`--`) i början av raden.
 
-**Uppgift 1:**
+### Uppgift 1:
 
 * Testa att göra rad 4 i `candy_factory.script` till en kommentar.
 * Starta om spelet genom att trycka på **restart**.
@@ -22,7 +22,7 @@ Om vi vill att datorn ska hoppa över en kod-rad kan vi göra om den till en kom
     > Om vi kommenterar bort `create_candy()` så kommer den första godisen aldrig att skapas när spelet startar.
     </details>
 
-**Uppgift 2:**
+### Uppgift 2:
 
 * Ta bort bindestrecken på rad 4 i `candy_factory.script`.
 * Testa att göra rad 9 i `candy_factory.script` till en kommentar.
@@ -46,14 +46,14 @@ Just nu skapas godisar på samma ställe hela tiden. I `candy_factory.script` ka
 
 ![Bild på koordinatsystem](https://i.gyazo.com/0688fba747933d69b66205e460a4f1e5.png "Koordinatsystem")
 
-**Uppgift 3:**
+### Uppgift 3:
 
 * Testa att ändra värdet på godisens x-position och y-position (i `candy_factory.script`) så att den skapas på någon annan plats. Varje gång du ändrat värdet så klickar du på `restart` för att köra den nya koden.
 * Kan du skriva in ett värde så att godisen placeras utanför bilden?
 
 Vi vill nu att godisarna ska hamna på olika ställen varje gång. Då behöver vi lära oss att använda `math.random()` för att få fram slumptal.
 
-**Uppgift 4:**
+### Uppgift 4:
 
 * Testa att ändra så att x-positionen slumpas fram med hjälp av `math.random()`. Du kan göra det genom att använda koden nedan:
 
@@ -71,14 +71,14 @@ Vi vill nu att godisarna ska hamna på olika ställen varje gång. Då behöver 
 
 När vi startar spelet så har du 0 poäng.
 
-**Uppgift 5:**
+### Uppgift 5:
 
 * Testa att ändra rad 1 i `points.gui_script` så att du startar med mer än 0 poäng.
 * Är det möjligt att starta med mindre än 0 poäng?
 
 Varje gång du krossar en godis så får du ett poäng. Nu vill vi ändra så att du kan få olika många poäng.
 
-**Uppgift 6:**
+### Uppgift 6:
 
 * Testa att ändra rad 5 i `points.gui_script` så att du får två poäng för varje godis du krossar.
 * Ändra så att du får dubbelt så många poäng varje gång (använd `*` för att göra multiplikation).
@@ -108,7 +108,7 @@ Så på rad 5 i `points.gui_script` uppdateras hur många poäng du har. På rad
 > Då lägger datorn ihop strängarna så att de blir en sträng. Två punkter kan vi också använda för att lägga ihop en sträng och en siffra.
 </details>
 
-**Uppgift 7:**
+### Uppgift 7:
 
 * Testa att ändra texten på rad 6 i `points.gui_script` så att det blir en annan text på skärmen.
 * Testa att sätta citationstecken runt `points` så att det blir
@@ -135,13 +135,9 @@ Så på rad 5 i `points.gui_script` uppdateras hur många poäng du har. På rad
     > så kommer datorn lägga ihop texten `"Points: "` med hur många poäng du har och visa det på skärmen. Om vi använder citationstecken så är det en text och annars är det en variabel.
     </details>
 
-**Uppgift 8:**
+### Uppgift 8:
 
 * Ändra så att slumpen bestämmer hur många poäng du får. Använd `math.random()` som när vi placerade godisarna.  
-  
-    
-      
-        
-        
+#  
 
 ------------------------------------------------------------  
