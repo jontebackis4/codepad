@@ -306,12 +306,12 @@ body.embedded #reload_page {
 }
 
 
-#instructions h1 {
- color: #cc241d   
+#instructions h1  {
+ color: #fb4934   
 }
 
 #instructions h2 {
-    color: #cc241d
+    color: #fb4934
 }
 
 #instructions code {
@@ -319,4 +319,8 @@ body.embedded #reload_page {
   color: #fe8019;
   display: inline-block;
   padding: 2px;
+}
+
+#instructions strong {
+    color: #d3869b
 }
