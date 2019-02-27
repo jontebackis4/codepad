@@ -307,11 +307,15 @@ body.embedded #reload_page {
 
 
 #instructions h1  {
- color: #fb4934   
+ color: #83a598  
 }
 
 #instructions h2 {
     color: #fb4934
+}
+
+#instructions h3 {
+    color: #fabd2f
 }
 
 #instructions code {
@@ -323,4 +327,11 @@ body.embedded #reload_page {
 
 #instructions strong {
     color: #d3869b
+}
+
+#instructions img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
