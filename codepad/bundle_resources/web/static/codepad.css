@@ -192,9 +192,8 @@ svg, .svg-image {
 }
 
 #info-wrap {
-    /* position: absolute; */
+    position: absolute;
     overflow: auto;
-    height: 100%;
     top: 40px;
     bottom: 0px;
     left: 0px;
