@@ -178,6 +178,36 @@ function codepad_create_edit_sessions_from_shared_sources(scene) {
     }
 }
 
+function codepad_fetch_instructions(instructions_elem) {
+    var scene_id = codepad_get_scene().substring(1);
+
+    if (location.hostname == "localhost") {
+        var file = '/html5/static/' + scene_id + '_instructions.md';
+    } else {
+        var file = window.location.href + '/static/' + scene_id + '_instructions.md';
+    }
+
+    fetch(file)
+        .then(function(response) 
+        {
+            return response.text().then(function (text)
+            {
+                var converter = new showdown.Converter(),
+                    text      = text,
+                    html      = converter.makeHtml(text);
+
+                    instructions_elem.innerHTML = html;
+            });
+        });
+}
+
+function init_instructions() {
+    var instructions_elem = document.getElementById('instructions');
+    if (instructions_elem) {
+        codepad_fetch_instructions(instructions_elem);
+    }
+}
+
 function codepad_change_scene() {
     codepad_should_change_scene = true;
     var scene_id = codepad_get_scene();
@@ -192,6 +222,7 @@ function codepad_change_scene() {
             } else {
                 codepad_create_edit_sessions_from_shared_sources(scene);
             }
+            init_instructions();
             break;
         }
     }
@@ -230,30 +261,11 @@ var console_text = "";
 
 function codepad_update_console(text) {
     console_text = text;
-    codepad_change_info_tab();
-}
 
-function codepad_fetch_instructions(instructions_elem) {
-    var scene_id = codepad_get_scene().substring(1);
-
-    if (location.hostname == "localhost") {
-        var file = '/html5/static/' + scene_id + '_instructions.md';
-    } else {
-        var file = window.location.href + '/static/' + scene_id + '_instructions.md';
+    var console_elem = document.getElementById('console');
+    if (console_elem) {
+        console_elem.innerHTML = console_text;
     }
-
-    fetch(file)
-        .then(function(response) 
-        {
-            return response.text().then(function (text)
-            {
-                var converter = new showdown.Converter(),
-                    text      = text,
-                    html      = converter.makeHtml(text);
-
-                    instructions_elem.innerHTML = html;
-            });
-        });
 }
 
 function codepad_change_info_tab() {
@@ -265,24 +277,21 @@ function codepad_change_info_tab() {
         {
             var instructions_elem = document.getElementById('instructions');
             var console_elem = document.getElementById('console');
+            var wrap_elem = document.getElementById('info-wrap');
 
             if (info_tabs[i].id == "instruction_tab")
             {
-                if (instructions_elem)
-                {
-                    codepad_fetch_instructions(instructions_elem);
-                }
+                localStorage.setItem("console_scroll_position", wrap_elem.scrollTop);
                 instructions_elem.hidden = false;
                 console_elem.hidden = true;
+                wrap_elem.scrollTop = localStorage.getItem("instruction_scroll_position");
             }
             else if (info_tabs[i].id == "console_tab")
             {
-                if (console_elem) {
-                    console_elem.innerHTML = console_text;
-                    console_elem.scrollTop = console_elem.scrollHeight;
-                }
+                localStorage.setItem("instruction_scroll_position", wrap_elem.scrollTop);
                 instructions_elem.hidden = true;
                 console_elem.hidden = false;
+                wrap_elem.scrollTop = localStorage.getItem("console_scroll_position");
             }
         }
     }
