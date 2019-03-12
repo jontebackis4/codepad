@@ -397,7 +397,6 @@ function codepad_reset_script() {
     {
         if (file_tabs[i].checked)
         {
-            console.log(i);
             var key = create_script_storage_key(i+1);
             localStorage.removeItem(key);
             codepad_change_scene();
