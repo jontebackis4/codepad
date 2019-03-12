@@ -157,6 +157,11 @@ function codepad_create_edit_sessions(scene) {
         if (codepad_shared_sources[i] !== undefined) {
             src_data = codepad_shared_sources[i];
         }
+        var saved_script = localStorage.getItem(create_script_storage_key(i+1))
+        if (saved_script !== null) {
+            src_data = saved_script;
+        }
+
         var file_session = new EditSession(src_data);
         file_session.setMode("ace/mode/lua");
         codepad_sessions[i] = file_session;
@@ -169,6 +174,22 @@ function codepad_create_edit_sessions(scene) {
         new_buttons = new_buttons + new_file_button;
     }
     files_div.innerHTML = new_buttons;
+    window.onkeydown = function() {save_scripts()};
+}
+
+function create_script_storage_key(index) {
+    return codepad_get_scene() + "_script_" + index;
+}
+
+function save_scripts() {
+    setTimeout(function() {
+        for (var i = 0; i < codepad_sessions.length; i++)
+        {
+            var code = codepad_get_code(i+1);
+            var key = create_script_storage_key(i+1);
+            localStorage.setItem(key, code);
+        }
+    }, 500);
 }
 
 function codepad_create_edit_sessions_from_shared_sources(scene) {
@@ -367,6 +388,22 @@ function codepad_share() {
     }
 
     window.location.hash = share_url;
+}
+
+function codepad_reset_script() {
+    var file_tabs = document.getElementsByName('current_file');
+
+    for (var i = 0, length = file_tabs.length; i < length; i++)
+    {
+        if (file_tabs[i].checked)
+        {
+            console.log(i);
+            var key = create_script_storage_key(i+1);
+            localStorage.removeItem(key);
+            codepad_change_scene();
+            break;
+        }
+    }
 }
 
 codepad_should_reload = false;
