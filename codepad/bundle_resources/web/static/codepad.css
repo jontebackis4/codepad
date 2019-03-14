@@ -309,7 +309,7 @@ body.embedded #reload_page {
 }
 
 #instructions h3 {
-    color: #fabd2f              /* Gul */
+    color: #fbf1c7              /* Beige */
 }
 
 #instructions summary {
@@ -318,7 +318,7 @@ body.embedded #reload_page {
 
 #instructions code {
   background-color: #282828;    /* Mörkare bakgrund, orange text*/
-  color: #fe8019;
+  color: #ff6506;
   display: inline-block;
   padding: 2px;
 }
