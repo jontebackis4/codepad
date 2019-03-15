@@ -313,7 +313,7 @@ body.embedded #reload_page {
 }
 
 #instructions summary {
-    color: #b8bb26              /*(Gömda flikar) grön */
+    color: #06960e             /*(Gömda flikar) grön */
 }
 
 #instructions code {
@@ -324,7 +324,7 @@ body.embedded #reload_page {
 }
 
 #instructions strong {
-    color: #d3869b              /*(Fetstil) lila*/
+    color: #fccf00              /*(Fetstil) lila*/
 }
 
 #instructions img {
