@@ -247,7 +247,6 @@ function codepad_fetch_instructions(instructions_elem) {
   fetch(file).then(function(response) {
     return response.text().then(function(text) {
       var converter = new showdown.Converter(),
-        text = text,
         html = converter.makeHtml(text);
 
       instructions_elem.innerHTML = html;
