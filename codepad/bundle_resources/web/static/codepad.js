@@ -215,7 +215,7 @@ function codepad_create_edit_sessions(scene) {
 }
 
 function create_script_storage_key(index) {
-  return codepad_get_scene() + "_script_" + index;
+  return document.title + codepad_get_scene() + "_script_" + index;
 }
 
 function save_scripts() {
