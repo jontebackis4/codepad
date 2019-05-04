@@ -354,3 +354,7 @@ body.embedded #reload_page {
   margin-left: auto;
   margin-right: auto;
 }
+
+#instructions a {
+  color: #c755ff;
+}

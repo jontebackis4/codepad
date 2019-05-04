@@ -6,6 +6,8 @@
 
 Om vi vill att datorn ska hoppa över en kod-rad kan vi göra om den till en kommentar. Det gör vi genom att skriva två bindestreck (`--`) i början av raden.
 
+Här kommer en test-länk: <https://www.defold.com/>
+
 ### Uppgift 1:
 
 * Testa att göra rad 4 i `candy_factory.script` till en kommentar.
