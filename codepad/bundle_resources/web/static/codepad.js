@@ -173,7 +173,9 @@ function codepad_create_edit_sessions(scene) {
     if (codepad_shared_sources[i] !== undefined) {
       src_data = codepad_shared_sources[i];
     }
-    var saved_script = localStorage.getItem(create_script_storage_key(i + 1));
+    var saved_script = localStorage.getItem(
+      generate_local_storage_key("_script_" + (i + 1))
+    );
     if (saved_script !== null) {
       src_data = saved_script;
     }
@@ -182,7 +184,15 @@ function codepad_create_edit_sessions(scene) {
     file_session.setMode("ace/mode/lua");
     codepad_sessions[i] = file_session;
     var checked = "";
-    if (i == 0) {
+    if (
+      i == 0 &&
+      !localStorage.getItem(generate_local_storage_key("_open_script"))
+    ) {
+      checked = " checked";
+      editor.setSession(file_session);
+    } else if (
+      localStorage.getItem(generate_local_storage_key("_open_script")) == i
+    ) {
       checked = " checked";
       editor.setSession(file_session);
     }
@@ -207,15 +217,15 @@ function codepad_create_edit_sessions(scene) {
   };
 }
 
-function create_script_storage_key(index) {
-  return document.title + codepad_get_scene() + "_script_" + index;
+function generate_local_storage_key(name) {
+  return document.title + codepad_get_scene() + name;
 }
 
 function save_scripts() {
   setTimeout(function() {
     for (var i = 0; i < codepad_sessions.length; i++) {
       var code = codepad_get_code(i + 1);
-      var key = create_script_storage_key(i + 1);
+      var key = generate_local_storage_key("_script_" + (i + 1));
       localStorage.setItem(key, code);
     }
   }, 500);
@@ -292,6 +302,7 @@ function codepad_change_file() {
   for (var i = 0, length = file_tabs.length; i < length; i++) {
     if (file_tabs[i].checked) {
       editor.setSession(codepad_sessions[i]);
+      localStorage.setItem(generate_local_storage_key("_open_script"), i);
       break;
     }
   }
@@ -318,20 +329,25 @@ function codepad_change_info_tab() {
       var wrap_elem = document.getElementById("info-wrap");
 
       if (info_tabs[i].id == "instruction_tab") {
-        localStorage.setItem("console_scroll_position", wrap_elem.scrollTop);
+        localStorage.setItem(
+          generate_local_storage_key("_console_scroll_position"),
+          wrap_elem.scrollTop
+        );
         instructions_elem.hidden = false;
         console_elem.hidden = true;
         wrap_elem.scrollTop = localStorage.getItem(
-          "instruction_scroll_position"
+          generate_local_storage_key("instruction_scroll_position")
         );
       } else if (info_tabs[i].id == "console_tab") {
         localStorage.setItem(
-          "instruction_scroll_position",
+          generate_local_storage_key("instruction_scroll_position"),
           wrap_elem.scrollTop
         );
         instructions_elem.hidden = true;
         console_elem.hidden = false;
-        wrap_elem.scrollTop = localStorage.getItem("console_scroll_position");
+        wrap_elem.scrollTop = localStorage.getItem(
+          generate_local_storage_key("_console_scroll_position")
+        );
       }
     }
   }
@@ -414,7 +430,7 @@ function codepad_reset_script() {
 
   for (var i = 0, length = file_tabs.length; i < length; i++) {
     if (file_tabs[i].checked) {
-      var key = create_script_storage_key(i + 1);
+      var key = generate_local_storage_key("_script_" + (i + 1));
       localStorage.removeItem(key);
       codepad_change_scene();
       break;
