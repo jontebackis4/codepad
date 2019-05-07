@@ -74,12 +74,6 @@ function codepad_load_engine(
   defold_archive_location_suffix,
   defold_binary_prefix
 ) {
-  console.log(
-    "codepad_load_engine",
-    defold_archive_location_prefix,
-    defold_archive_location_suffix,
-    defold_binary_prefix
-  );
   var extra_params = {
     archive_location_filter: function(path) {
       return (
@@ -134,7 +128,6 @@ function codepad_load_engine(
   };
 
   Module.locateFile = function(path, scriptDirectory) {
-    console.log("Module.locateFile", defold_binary_prefix);
     // dmengine*.wasm is hardcoded in the built JS loader for WASM,
     // we need to replace it here with the correct project name.
     if (
