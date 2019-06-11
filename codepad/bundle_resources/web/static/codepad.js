@@ -56,12 +56,15 @@ function codepad_load_editor(callback) {
       sizes: [30, 70]
     });
 
-    Split(["#pane-editor", "#pane-canvas"], {
-      direction: "vertical",
-      onDrag: function() {
-        fix_canvas_size();
-      }
-    });
+    // Only split if game canvas is active
+    if(!document.getElementById("pane-canvas").hidden){
+      Split(["#pane-editor", "#pane-canvas"], {
+        direction: "vertical",
+        onDrag: function() {
+          fix_canvas_size();
+        }
+      });
+    }
 
     if (callback) {
       callback();
