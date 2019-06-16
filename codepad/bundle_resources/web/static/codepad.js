@@ -43,7 +43,7 @@ function codepad_load_editor(callback) {
     "https://cdnjs.cloudflare.com/ajax/libs/split.js/1.5.10/split.min.js"
   ];
 
-  dynload_multiple(js_libs, function() {
+  dynload_multiple(js_libs, function () {
     console.log("editor loaded");
 
     EditSession = require("ace/edit_session").EditSession;
@@ -56,15 +56,12 @@ function codepad_load_editor(callback) {
       sizes: [30, 70]
     });
 
-    // Only split if game canvas is active
-    if(!document.getElementById("pane-canvas").hidden){
-      Split(["#pane-editor", "#pane-canvas"], {
-        direction: "vertical",
-        onDrag: function() {
-          fix_canvas_size();
-        }
-      });
-    }
+    Split(["#pane-editor", "#pane-canvas"], {
+      direction: "vertical",
+      onDrag: function () {
+        fix_canvas_size();
+      }
+    });
 
     if (callback) {
       callback();
@@ -78,7 +75,7 @@ function codepad_load_engine(
   defold_binary_prefix
 ) {
   var extra_params = {
-    archive_location_filter: function(path) {
+    archive_location_filter: function (path) {
       return (
         defold_archive_location_prefix + path + defold_archive_location_suffix
       );
@@ -96,7 +93,7 @@ function codepad_load_engine(
     bar_id: "defold-progress-bar",
     label_id: "defold-progress-label",
 
-    addProgress: function(canvas) {
+    addProgress: function (canvas) {
       splash.innerHTML =
         '<div id="defold-progress-wrap"><div id="' +
         Progress.label_id +
@@ -110,14 +107,14 @@ function codepad_load_engine(
       Progress.label = document.getElementById(Progress.label_id);
     },
 
-    updateProgress: function(percentage, text) {
+    updateProgress: function (percentage, text) {
       Progress.bar.style.width = percentage + "%";
 
       text = typeof text === "undefined" ? Math.round(percentage) + "%" : text;
       Progress.label.innerText = text;
     },
 
-    removeProgress: function() {
+    removeProgress: function () {
       if (Progress.progress.parentElement !== null) {
         splash.remove();
       }
@@ -126,11 +123,11 @@ function codepad_load_engine(
   };
 
   // Run engine
-  Module.onRuntimeInitialized = function() {
+  Module.onRuntimeInitialized = function () {
     Module.runApp("canvas", extra_params);
   };
 
-  Module.locateFile = function(path, scriptDirectory) {
+  Module.locateFile = function (path, scriptDirectory) {
     // dmengine*.wasm is hardcoded in the built JS loader for WASM,
     // we need to replace it here with the correct project name.
     if (
@@ -215,7 +212,7 @@ function codepad_create_edit_sessions(scene) {
     new_buttons = new_buttons + new_file_button;
   }
   files_div.innerHTML = new_buttons;
-  window.onkeydown = function() {
+  window.onkeydown = function () {
     save_scripts();
   };
 }
@@ -225,7 +222,7 @@ function generate_local_storage_key(name) {
 }
 
 function save_scripts() {
-  setTimeout(function() {
+  setTimeout(function () {
     for (var i = 0; i < codepad_sessions.length; i++) {
       var code = codepad_get_code(i + 1);
       var key = generate_local_storage_key("_script_" + (i + 1));
@@ -250,8 +247,8 @@ function codepad_fetch_instructions(instructions_elem) {
       window.location.href + "/static/" + scene_id + "_instructions.md";
   }
 
-  fetch(file).then(function(response) {
-    return response.text().then(function(text) {
+  fetch(file).then(function (response) {
+    return response.text().then(function (text) {
       var converter = new showdown.Converter(),
         html = converter.makeHtml(text);
 
@@ -375,7 +372,7 @@ function codepad_get_code(i) {
   return "";
 }
 
-var deparam = function(querystring) {
+var deparam = function (querystring) {
   // remove any preceding url and split
   querystring = querystring.substring(querystring.indexOf("?") + 1).split("&");
   var params = {},
