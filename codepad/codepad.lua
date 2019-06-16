@@ -22,6 +22,7 @@ codepad.current_cp = nil
 
 function codepad.url_to_hex(url)
 	url = url or msg.url()
+	print(url)
 	return hash_to_hex(url.socket) .. hash_to_hex(url.path) .. hash_to_hex(url.fragment)
 end
 
