@@ -25,7 +25,7 @@ end
 
 return {
 	name = "GO + Sprite",
-	url = "#cp_sprite",
+	url = "#cp_two_gos",
 	grid = true,
 	scripts = {
 		{

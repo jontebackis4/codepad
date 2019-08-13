@@ -322,6 +322,12 @@ function codepad_update_console(text) {
   }
 }
 
+function codepad_reset_console() {
+  resetted_text = "";
+  codepad_update_console(resetted_text);
+  codepad_should_reset_console = true;
+}
+
 function codepad_change_info_tab() {
   var info_tabs = document.getElementsByName("information_tab");
 
@@ -330,6 +336,7 @@ function codepad_change_info_tab() {
       var instructions_elem = document.getElementById("instructions");
       var console_elem = document.getElementById("console");
       var wrap_elem = document.getElementById("info-wrap");
+      var reset_console_elem = document.getElementById("reset-console");
 
       if (info_tabs[i].id == "instruction_tab") {
         localStorage.setItem(
@@ -338,6 +345,7 @@ function codepad_change_info_tab() {
         );
         instructions_elem.hidden = false;
         console_elem.hidden = true;
+        reset_console_elem.hidden = true
         wrap_elem.scrollTop = localStorage.getItem(
           generate_local_storage_key("instruction_scroll_position")
         );
@@ -348,6 +356,7 @@ function codepad_change_info_tab() {
         );
         instructions_elem.hidden = true;
         console_elem.hidden = false;
+        reset_console_elem.hidden = false;
         wrap_elem.scrollTop = localStorage.getItem(
           generate_local_storage_key("_console_scroll_position")
         );
@@ -444,3 +453,4 @@ function codepad_reset_script() {
 codepad_should_reload = false;
 codepad_should_restart = false;
 codepad_should_change_scene = true;
+codepad_should_reset_console = false;

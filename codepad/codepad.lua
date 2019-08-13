@@ -225,6 +225,12 @@ print = function(...)
 	___print(...)
 
 	if html5 then
+		local should_reset_console = html5.run('codepad_should_reset_console')
+		if should_reset_console == "true" then
+			console_lines = {}
+			html5.run('codepad_should_reset_console = false;')
+		end
+
 		local input = {...}
 		local line = ""
 		--for _,v in pairs(input) do
