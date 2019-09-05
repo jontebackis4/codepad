@@ -22,11 +22,11 @@ codepad.current_cp = nil
 
 function codepad.url_to_hex(url)
 	url = url or msg.url()
-	print(url)
 	return hash_to_hex(url.socket) .. hash_to_hex(url.path) .. hash_to_hex(url.fragment)
 end
 
 function codepad.register_script(id)
+	print(id)
 	local scene = codepad.scenes[codepad.current_cp]
 	assert(scene)
 	if not id or id == hash("") then
