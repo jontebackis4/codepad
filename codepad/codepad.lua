@@ -60,6 +60,7 @@ function codepad.init(self, scenes)
 			-- make a copy to ensure that if two scenes refers to the same script instance they
 			-- get correct ids
 			script = {
+				code = script.code,
 				name = script.name,
 				url = script.url,
 				id = script.id,
@@ -72,7 +73,7 @@ function codepad.init(self, scenes)
 			end
 		end
 	end
-
+ 
 	-- send scenes to html
 	local scenes_json = rxi_json.encode(scenes)
 	html5.run(("codepad_ready('%s')"):format(escape.escape(scenes_json)))
