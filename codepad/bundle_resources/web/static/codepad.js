@@ -156,6 +156,18 @@ function codepad_get_scene() {
   return scenes_elem.options[scenes_elem.selectedIndex].value;
 }
 
+// Set selected scene in the html drop down
+function codepad_set_selected_scene(scene_id) {
+  var scenes_elem = document.getElementById("scene");
+  var scene_options = scenes_elem.options;
+  for (var option, i = 0; option = scene_options[i]; i++) {
+    if (option.value == scene_id) {
+      scenes_elem.selectedIndex = i;
+      break;
+    }
+  }
+}
+
 function codepad_create_edit_sessions(scene) {
   var files_div = document.getElementById("files");
   files_div.innerHTML = "";
@@ -264,9 +276,18 @@ function init_instructions() {
   }
 }
 
-function codepad_change_scene() {
+// If the function is called without the argument scene_id set,
+// scene_id will be read from html drop down instead
+function codepad_change_scene(scene_id) {
+  if (scene_id === undefined) {
+    scene_id = codepad_get_scene();
+  } else {
+    // compensate for scene_id automatically getting an # added at the start
+    scene_id = '#' + scene_id
+    codepad_set_selected_scene(scene_id);
+  }
+
   codepad_should_change_scene = true;
-  var scene_id = codepad_get_scene();
   for (var i = 0; i < scenes.length; i++) {
     var scene = scenes[i];
     if (scene.id == scene_id) {
