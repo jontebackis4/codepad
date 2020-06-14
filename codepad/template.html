@@ -14,62 +14,61 @@
 </head>
 
 <body>
-    <div id="splash"><div>LOADING</div></div>
-</div>
-<div id="icons" style="display: none;">
-    <div id="icon-script">
-        <img src="static/icon-script.svg" class="svg-image">
-    </div>
-</div>
-    <div id="toolbar">Collection:
-        <select id="scene" onchange="codepad_change_scene()">
-            <!-- This will be populated at run-time -->
-        </select>
-        <button onclick="codepad_restart()">Restart</button>
-        <span id="defold_version"></span>
-        <div id="share-wrap">
-            <button onclick="codepad_share()"><img src="static/icon-share.svg" class="svg-image">Share</button>
-            <button onclick="codepad_save()"><img src="static/icon-share.svg" class="svg-image">Save</button>
-            <img src="static/icon-logo.svg" class="svg-image">
+    <div id="splash"><div>LOADING</div>
+    <div id="icons" style="display: none;">
+        <div id="icon-script">
+            <img src="static/icon-script.svg" class="svg-image">
         </div>
     </div>
-
-    <div id="layout">
-        <div id="pane-information" class="split split-horizontal">
-            <div id="pane-info">
-                <div class="tabs-wrap">
-                    <input type="radio" onchange="codepad_change_info_tab()" id="instruction_tab" name="information_tab" value="instruction_tab" checked>
-                    <label for="instruction_tab">Instructions</label>
-                    <input type="radio" onchange="codepad_change_info_tab()" id="console_tab" name="information_tab" value="console_tab">
-                    <label for="console_tab">Console</label>
-                </div>
-                <div id="info-wrap" class="pane-content">
-                    <div id="instructions"></div>
-                    <div id="console"></div>
-                    <button id="reset-console" onclick="codepad_reset_console()"><img src="static/icon-reload.svg" class="svg-image">Reset console</button>  
-                </div>
+        <div id="toolbar">Collection:
+            <select id="scene" onchange="codepad_change_scene()">
+                <!-- This will be populated at run-time -->
+            </select>
+            <button onclick="codepad_restart()">Restart</button>
+            <span id="defold_version"></span>
+            <div id="share-wrap">
+                <button onclick="codepad_share()"><img src="static/icon-share.svg" class="svg-image">Share</button>
+                <button onclick="codepad_save()"><img src="static/icon-share.svg" class="svg-image">Save</button>
+                <img src="static/icon-logo.svg" class="svg-image">
             </div>
         </div>
 
-        <div id="pane-game" class="split split-horizontal">
-            <div id="pane-editor" class="split split-vertical">
-                <div id="files" class="tabs-wrap"></div>
-                <div id="editor-wrap">
-                    <div id="editor"></div>
-                    <!-- <button onclick="codepad_reload()"><img src="static/icon-reload.svg" class="svg-image">Reload</button> -->
-                    <button onclick="codepad_reset_script()"><img src="static/icon-reload.svg" class="svg-image">Reset script</button>
+        <div id="layout">
+            <div id="pane-information" class="split split-horizontal">
+                <div id="pane-info">
+                    <div class="tabs-wrap">
+                        <input type="radio" onchange="codepad_change_info_tab()" id="instruction_tab" name="information_tab" value="instruction_tab" checked>
+                        <label for="instruction_tab">Instructions</label>
+                        <input type="radio" onchange="codepad_change_info_tab()" id="console_tab" name="information_tab" value="console_tab">
+                        <label for="console_tab">Console</label>
+                    </div>
+                    <div id="info-wrap" class="pane-content">
+                        <div id="instructions"></div>
+                        <div id="console"></div>
+                        <button id="reset-console" onclick="codepad_reset_console()"><img src="static/icon-reload.svg" class="svg-image">Reset console</button>  
+                    </div>
                 </div>
             </div>
-            <div id="pane-canvas" class="split split-vertical pane-content">
-                <div id="app-container" class="canvas-app-container">
-                    <canvas id="canvas" class="canvas-app-canvas" tabindex="1" width="{{display.width}}" height="{{display.height}}"></canvas>
+
+            <div id="pane-game" class="split split-horizontal">
+                <div id="pane-editor" class="split split-vertical">
+                    <div id="files" class="tabs-wrap"></div>
+                    <div id="editor-wrap">
+                        <div id="editor"></div>
+                        <!-- <button onclick="codepad_reload()"><img src="static/icon-reload.svg" class="svg-image">Reload</button> -->
+                        <button onclick="codepad_reset_script()"><img src="static/icon-reload.svg" class="svg-image">Reset script</button>
+                    </div>
                 </div>
-                <button id="reload_page" onclick="reload_page()">Close</button>
-                <button id="view_source" onclick="view_source()">View Source</button>
+                <div id="pane-canvas" class="split split-vertical pane-content">
+                    <div id="app-container" class="canvas-app-container">
+                        <canvas id="canvas" class="canvas-app-canvas" tabindex="1" width="{{display.width}}" height="{{display.height}}"></canvas>
+                    </div>
+                    <button id="reload_page" onclick="reload_page()">Close</button>
+                    <button id="view_source" onclick="view_source()">View Source</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
     <!-- -->
