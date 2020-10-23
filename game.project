@@ -1,7 +1,7 @@
 [project]
 title = Codepad
 version = 1.0
-bundle_resources = /codepad/bundle_resources/
+bundle_resources = /codepad/bundle_resources/, instructions
 bundle_exclude_resources = 
 
 [bootstrap]
