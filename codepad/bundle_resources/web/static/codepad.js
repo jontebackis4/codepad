@@ -475,6 +475,16 @@ function codepad_share() {
   }
 
   window.location.hash = share_url;
+
+  var copy_url = document.createElement('input'),
+    text = window.location.href;
+
+  document.body.appendChild(copy_url);
+  copy_url.value = text;
+  copy_url.select();
+  document.execCommand('copy');
+  document.body.removeChild(copy_url);
+
 }
 
 function codepad_reset_script() {
