@@ -359,7 +359,11 @@ body.embedded #reload_page {
   color: #c755ff;
 }
 
-#instructions details { /* Kolla på denna Tima*/
-  
+#instructions .summary-text { 
+  background-color: rgba(124, 124, 143, 0.479);
+  border-radius: 10px;
+  margin-right: 10%;
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
 
