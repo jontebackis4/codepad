@@ -1,5 +1,5 @@
 # Codepad
-Online Defold compiler/interpreter. [Try it here](https://codepad.defold.com) or host your own custom version.
+Online Defold compiler/interpreter. [Try it here](https://defold.com/codepad/) or host your own custom version.
 
 # Installation
 You can use the Codepad in your own project by adding this project as a [Defold library dependency](http://www.defold.com/manuals/libraries/). Open your game.project file and in the dependencies field under project add:
@@ -26,7 +26,7 @@ You also need to make sure to include the static HTML5 content (css, javascript 
 ## Expose modifiable scripts
 The scripts that are modifiable from the Codepad can be both game object scripts and GUI scripts. A game object or GUI scene that wants to have a modifiable script must add the `codepad/go.script` or `codepad/gui.gui_script` respectively.
 
-## Intialise and update the codepad
+## Initialise and update the codepad
 Before the Codepad is used it must be initialised with available scenes and modifiable scripts per scene.
 
 	local codepad = require "codepad.codepad"
@@ -61,10 +61,14 @@ In the above example we define a single scene named "My Scene" with a proxy URL 
 
 You can also provide an additional property `code` per script to provide a string containing any code you wish to use as default for the script. If no `code` is provided then the Codepad will use a default script containing empty Defold lifecycle functions.
 
-## Libraries
- Codepad uses the following libraries:
 
-  * [FileSaver.js](https://github.com/eligrey/FileSaver.js)
- * [JSZip](https://github.com/Stuk/jszip)
- * [Keymaster](https://github.com/madrobby/keymaster)
- * [LZ-String](https://github.com/pieroxy/lz-string)
+## Libraries
+Codepad uses the following libraries:
+
+* [FileSaver.js](https://github.com/eligrey/FileSaver.js)
+* [JSZip](https://github.com/Stuk/jszip)
+* [Keymaster](https://github.com/madrobby/keymaster)
+* [LZ-String](https://github.com/pieroxy/lz-string)
+* [Ace](https://github.com/ajaxorg/ace/)
+* [split.js](https://github.com/nathancahill/split/)
+	
