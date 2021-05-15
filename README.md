@@ -1,14 +1,13 @@
-# Codepad
-Online Defold compiler/interpreter. [Try it here](https://codepad.defold.com) or host your own custom version.
+# Codepad - HW forked version
+Online Defold compiler/interpreter. [Try a example codepad game here](https://helloworldsweden.github.io/Codepad-Falling_coin/).
+This forked version also has support for markdown instructions and has some layout differences.
 
-Currently working with this release of the Defold Editor: https://github.com/defold/defold/releases/tag/1.2.174
+Defold Editor to use for development of HW codepad projects (not latest): https://github.com/defold/defold/releases/tag/1.2.174
 
 # Installation
 You can use the Codepad in your own project by adding this project as a [Defold library dependency](http://www.defold.com/manuals/libraries/). Open your game.project file and in the dependencies field under project add:
 
-https://github.com/defold/codepad/archive/master.zip
-
-Or point to the ZIP file of a [specific release](https://github.com/defold/codepad/releases).
+https://github.com/HelloWorldSweden/codepad/archive/refs/heads/master.zip
 
 # Usage
 The Codepad can be used in two ways:
